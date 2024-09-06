@@ -28,13 +28,16 @@ DOWNLOAD_HANDLERS = {
 }
 
 PLAYWRIGHT_DEFAULT_NAVIGATION_TIMEOUT = (
-    120 * 1000
+    10 * 1000
 )
+
+RETRY_ENABLED = True
+RETRY_TIMES = 3
 
 PLAYWRIGHT_BROWSER_TYPE = "chromium"
 
 PLAYWRIGHT_LAUNCH_OPTIONS = {
-    "headless": False,
+    "headless": True,
 }
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
@@ -68,9 +71,9 @@ PLAYWRIGHT_LAUNCH_OPTIONS = {
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    "otto_scrape.middlewares.OttoScrapeDownloaderMiddleware": 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+    "otto_scrape.middlewares.OttoScrapeDownloaderMiddleware": 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
